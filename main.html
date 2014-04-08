@@ -1,0 +1,43 @@
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="blah.js"></script>
+
+</head>
+<body>
+
+<input id="sbox" />
+
+<div id="results"></div>
+
+
+<script>
+
+var handler = function(event){
+	
+	$("#results").text("");
+	var word = $("#sbox").val();
+
+	//console.log(word);
+	//console.log(phraseList);
+			console.log("=================================");
+    var foundWords = Search(
+        word,
+        phraseList,
+        .2);
+		
+		//console.log(foundWords);
+		$.each(foundWords, function(i,x){
+			$("#results").append("<p><b>"+x.score+"("+x.winner+")</b>"+x.words+"</p>");
+			//console.log(x);
+		});
+	
+}
+
+$("#sbox").on( "keyup", handler );
+
+</script>
+
+</body>
+
+</html>
